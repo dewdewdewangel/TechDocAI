@@ -1,0 +1,5 @@
+# FastAPI upstream commit: public localhost Jupyter token examples.
+# Verified false positives; not TechDoc AI credentials.
+7f8bfc8faae604ee733354af80fc61234d1d6ff8:{{cookiecutter.project_slug}}/README.md:generic-api-key:150
+7f8bfc8faae604ee733354af80fc61234d1d6ff8:{{cookiecutter.project_slug}}/README.md:generic-api-key:157
+7f8bfc8faae604ee733354af80fc61234d1d6ff8:{{cookiecutter.project_slug}}/README.md:generic-api-key:163

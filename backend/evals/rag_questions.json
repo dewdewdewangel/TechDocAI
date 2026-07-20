@@ -1,0 +1,27 @@
+[
+  {
+    "id": "api-port",
+    "query": "Which internal port does the TechDoc API use?",
+    "relevant_document_titles": ["api-guide.md"]
+  },
+  {
+    "id": "health-endpoint",
+    "query": "What is the backend health-check endpoint?",
+    "relevant_document_titles": ["api-guide.md"]
+  },
+  {
+    "id": "vector-storage",
+    "query": "Where are document embeddings stored?",
+    "relevant_document_titles": ["deployment-guide.md"]
+  },
+  {
+    "id": "upload-persistence",
+    "query": "Which Docker volume persists uploaded source files?",
+    "relevant_document_titles": ["deployment-guide.md"]
+  },
+  {
+    "id": "user-isolation",
+    "query": "Can a normal user access another user's documents?",
+    "relevant_document_titles": ["security-guide.md"]
+  }
+]

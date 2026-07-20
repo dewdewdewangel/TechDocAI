@@ -1,0 +1,60 @@
+.vscode/*
+!.vscode/extensions.json
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# Local secrets
+.env.*
+.env
+!.env.example
+
+# User-uploaded and runtime data
+/uploads/
+/backend/uploads/
+/data/
+/backend/data/
+
+
+# Local model weights
+/models/
+/backend/models/
+*.pt
+*.pth
+*.safetensors
+*.onnx
+
+
+# Python
+.venv/
+**/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+coverage.xml
+.coverage
+
+# Frontend
+node_modules/
+dist/
+frontend/dist/
+test-results/
+playwright-report/
+blob-report/
+
+# Runtime files
+*.log
+*.sqlite
+*.sqlite3
+*.backup
+
+# Local agent and retired template tooling
+/.agents/
+/.claude/
+/.copier/
+/hooks/
