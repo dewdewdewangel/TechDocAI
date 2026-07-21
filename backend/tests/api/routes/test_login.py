@@ -49,25 +49,24 @@ def test_use_access_token(
 def test_recovery_password(
     client: TestClient, normal_user_token_headers: dict[str, str]
 ) -> None:
+    email = "test@example.com"
+
     with (
         patch("app.core.config.settings.SMTP_HOST", "smtp.example.com"),
         patch("app.core.config.settings.SMTP_USER", "admin@example.com"),
+        patch("app.api.routes.login.send_email") as mock_send_email,
     ):
-        email = "test@example.com"
-        with patch("app.api.routes.login.send_email") as mock_send_email:
-            r = client.post(
-                f"{settings.API_V1_STR}/password-recovery/{email}",
-                headers=normal_user_token_headers,
-            )
         r = client.post(
             f"{settings.API_V1_STR}/password-recovery/{email}",
             headers=normal_user_token_headers,
         )
-        assert r.status_code == 200
-        assert r.json() == {
-            "message": "If that email is registered, we sent a password recovery link"
-        }
 
+    assert r.status_code == 200
+    assert r.json() == {
+        "message": "If that email is registered, we sent a password recovery link"
+    }
+    mock_send_email.assert_called_once()
+    assert mock_send_email.call_args.kwargs["email_to"] == email
 
 def test_recovery_password_user_not_exits(
     client: TestClient, normal_user_token_headers: dict[str, str]
