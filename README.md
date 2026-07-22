@@ -138,17 +138,60 @@ model resources and LLM quota:
 
 ## RAG evaluation
 
-Upload the three files under backend/evals/documents using their original file
-names. After indexing completes, run:
+The repository includes a controlled RAG benchmark with three technical
+documents and five questions. The benchmark separately evaluates retrieval and
+real answer generation through the running HTTP API.
+
+### Latest controlled benchmark
+
+| Metric | Result |
+| --- | ---: |
+| Dataset size | 3 documents, 5 questions |
+| Recall@5 | 100% (5/5) |
+| Recall@5 with `min_score=0.55` | 100% (5/5) |
+| Citation precision | 100% (5/5) |
+| Citation recall | 100% (5/5) |
+| Answers containing citation markers | 100% (5/5) |
+| Answer correctness by manual review | 100% (5/5) |
+| Mean question-answer latency | 4.39 s |
+| Median question-answer latency | 2.54 s |
+| Minimum–maximum latency | 2.35–11.34 s |
+
+Citation precision measures whether the source documents returned with each
+answer match the gold documents in the evaluation dataset. Question-answer
+latency is measured from submitting a question to receiving the complete HTTP
+response, including retrieval and remote LLM generation. It excludes document
+upload and indexing time.
+
+The benchmark was run locally using:
+
+- Windows host with Docker Compose
+- Intel Core i5-11400H CPU
+- BGE-M3 embeddings on CPU
+- `deepseek-v4-flash` through the DeepSeek API
+- `RETRIEVAL_TOP_K=5`
+- `RETRIEVAL_MIN_SCORE=0.55`
+
+To reproduce the retrieval benchmark, upload the three files under
+`backend/evals/documents` using their original file names and wait for indexing
+to complete. Then run:
 
     cd backend
     uv run python scripts/evaluate_rag.py --user-email your-user@example.com
 
-The report includes raw Recall@K, thresholded Recall@K, answer citation
-precision, and per-question document scores. Use --min-score to test a
-candidate threshold. Replace or extend backend/evals/rag_questions.json with
-questions derived from the production knowledge base before tuning
-RETRIEVAL_MIN_SCORE.
+To run the real answer and citation benchmark:
+
+    uv run python scripts/evaluate_rag_answers.py \
+      --user-email your-user@example.com
+
+The password is requested through a hidden prompt and is not stored in the
+report. The latest detailed result is available in
+[`backend/evals/results/rag_answer_eval.json`](backend/evals/results/rag_answer_eval.json).
+
+These results come from a small controlled dataset and one local evaluation
+run. They demonstrate pipeline correctness and reproducibility, not
+production-scale quality or latency.
+
 
 ## Operations
 

@@ -1,0 +1,73 @@
+{
+  "evaluated_at": "2026-07-22T11:10:19.488849+00:00",
+  "cases": 5,
+  "mean_citation_precision": 1.0,
+  "mean_citation_recall": 1.0,
+  "citation_marker_rate": 1.0,
+  "mean_latency_ms": 4390.75,
+  "median_latency_ms": 2544.69,
+  "min_latency_ms": 2351.85,
+  "max_latency_ms": 11342.9,
+  "results": [
+    {
+      "id": "api-port",
+      "query": "Which internal port does the TechDoc API use?",
+      "answer": "The TechDoc API uses port 8000 internally [1].",
+      "latency_ms": 3230.2,
+      "cited_documents": [
+        "api-guide.md"
+      ],
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_citation_marker": true
+    },
+    {
+      "id": "health-endpoint",
+      "query": "What is the backend health-check endpoint?",
+      "answer": "The backend health-check endpoint is `/api/v1/utils/health-check/` [1].",
+      "latency_ms": 2351.85,
+      "cited_documents": [
+        "api-guide.md"
+      ],
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_citation_marker": true
+    },
+    {
+      "id": "vector-storage",
+      "query": "Where are document embeddings stored?",
+      "answer": "Based on the provided reference, document embeddings are stored in PostgreSQL using pgvector [1].",
+      "latency_ms": 2484.1,
+      "cited_documents": [
+        "deployment-guide.md"
+      ],
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_citation_marker": true
+    },
+    {
+      "id": "upload-persistence",
+      "query": "Which Docker volume persists uploaded source files?",
+      "answer": "The uploaded source files are persisted in the **app-upload-data** Docker volume [1].",
+      "latency_ms": 2544.69,
+      "cited_documents": [
+        "deployment-guide.md"
+      ],
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_citation_marker": true
+    },
+    {
+      "id": "user-isolation",
+      "query": "Can a normal user access another user's documents?",
+      "answer": "According to the reference material, normal users may only access their own documents and chat sessions [1]. Therefore, a normal user cannot access another user's documents.",
+      "latency_ms": 11342.9,
+      "cited_documents": [
+        "security-guide.md"
+      ],
+      "citation_precision": 1.0,
+      "citation_recall": 1.0,
+      "has_citation_marker": true
+    }
+  ]
+}
