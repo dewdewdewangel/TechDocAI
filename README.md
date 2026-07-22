@@ -8,6 +8,10 @@ TechDoc AI is a multi-user technical-document question answering system built
 with FastAPI, React, PostgreSQL, pgvector, BGE-M3, Redis, Dramatiq, and an
 OpenAI-compatible LLM API.
 
+## Product preview
+
+![TechDoc AI document library with indexed technical documents](docs/screenshots/document-library.png)
+
 ## Architecture
 
 The API stores users, documents, chunks, conversations, citations, and audit
