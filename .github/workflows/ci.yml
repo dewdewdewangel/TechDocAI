@@ -123,7 +123,7 @@ jobs:
 
     env:
       CI: "true"
-      ENVIRONMENT: staging
+      ENVIRONMENT: local
       SECRET_KEY: cccccccccccccccccccccccccccccccc
       FIRST_SUPERUSER: ci-admin@example.com
       FIRST_SUPERUSER_PASSWORD: aaaaaaaaaaaaaaaa
