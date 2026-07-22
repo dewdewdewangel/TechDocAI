@@ -13,6 +13,7 @@
       "!**/test-results/**/*",
       "!**/blob-report/**/*",
       "!**/playwright-report/**/*",
+      "!**/playwright/.auth/**/*",
       "!**/playwright.config.ts"
     ]
   },

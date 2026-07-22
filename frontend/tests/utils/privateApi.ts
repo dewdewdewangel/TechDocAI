@@ -1,8 +1,9 @@
 // Note: the `PrivateService` is only available when generating the client
 // for local environments
 import { OpenAPI, PrivateService } from "../../src/client"
+import { apiUrl } from "../config"
 
-OpenAPI.BASE = `${process.env.VITE_API_URL}`
+OpenAPI.BASE = apiUrl
 
 export const createUser = async ({
   email,

@@ -1,4 +1,5 @@
 import type { APIRequestContext } from "@playwright/test"
+import { mailcatcherHost } from "../config"
 
 type Email = {
   id: number
@@ -13,7 +14,7 @@ async function findEmail({
   request: APIRequestContext
   filter?: (email: Email) => boolean
 }) {
-  const response = await request.get(`${process.env.MAILCATCHER_HOST}/messages`)
+  const response = await request.get(`${mailcatcherHost}/messages`)
 
   let emails = await response.json()
 
