@@ -1,7 +1,7 @@
 services:
 
   db:
-    image: pgvector/pgvector:0.8.5-pg18-trixie
+    image: pgvector/pgvector:0.8.6-pg18-trixie
     restart: always
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
@@ -23,7 +23,7 @@ services:
       - POSTGRES_DB=${POSTGRES_DB?Variable not set}
 
   redis:
-    image: redis:8.2-alpine
+    image: redis:8.10-alpine
     restart: always
     command: redis-server --appendonly yes --appendfsync everysec
     healthcheck:
